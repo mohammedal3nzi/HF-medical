@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        header {
+    background-color: #bfd6c4;
+    color: rgb(39, 63, 17);
+    text-align: center;
+    padding: 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1em;
+            overflow-y: auto;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1em;
+        }
+        .message {
+            margin: 0.5em 0;
+            padding: 0.8em;
+            border-radius: 10px;
+        }
+        .user {
+            align-self: flex-end;
+            background-color: #4b963c;
+        }
+        .bot {
+            align-self: flex-start;
+            background-color: #3178b1;
+        }
+        .input-container {
+            display: flex;
+            padding: 1em;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .input-container button {
+            padding: 0.5em 1em;
+            margin-left: 0.5em;
+            border: none;
+            border-radius: 5px;
+            background-color: #136e1f;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .input-container button:hover {
+            background-color: #bfd6c4;
+        }
+    </style>
+</head>
+<body>
+    <header>Doctor Mohammed Alenezi</header>
+    <div class="chat-container" id="chat-container">
+        <!-- Chat messages will appear here -->
+    </div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+
+        function appendMessage(content, sender) {
+            const message = document.createElement('div');
+            message.className = `message ${sender}`;
+            message.textContent = content;
+            chatContainer.appendChild(message);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const message = userInput.value.trim();
+
+            if (message) {
+                appendMessage(message, 'user');
+                userInput.value = '';
+
+                setTimeout(() => {
+                    const botResponse = generateBotResponse(message);
+                    appendMessage(botResponse, 'bot');
+                }, 500);
+            }
+        }
+
+        function generateBotResponse(userMessage) {
+            return "You said: " + userMessage; // Placeholder response logic
+        }
+    </script>
+</body>
+</html>
