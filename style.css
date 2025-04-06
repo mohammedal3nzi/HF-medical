@@ -1,0 +1,162 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    margin: 0;
+}
+
+h2{
+    color: #fff;
+}
+.date-container {
+    padding: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.ipad-frame {
+    width: 500px;  /* عرض الإطار */
+    height: 800px; /* ارتفاع الإطار */
+    background-color: #000;
+    border-radius: 40px; /* تدوير الزوايا */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 15px 10px 10px rgba(0, 0, 0, 0.5); /* إضافة تأثير ظل 3D للإطار */
+    transform: perspective(1500px) rotateX(10deg); /* إضافة عمق للإطار */
+}
+
+.ipad-screen {
+    border: 20px solid #333;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    background-image: url('ipad.png'); /* تعيين صورة الخلفية هنا */
+    background-size: cover; /* جعل الصورة تغطي كامل العنصر */
+    background-position: center; /* توسيط الصورة */
+    border-radius: 30px; /* تدوير الزوايا */
+    box-sizing: border-box;
+    padding: 20px; /* حشو */
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+    justify-content: center; /* محاذاة العناصر عموديًا في المنتصف */
+    color: #333;
+    font-size: 24px; /* حجم الخط */
+    text-align: center;
+    position: relative; /* لضمان إمكانية وضع الساعة داخلها */
+  
+}
+
+.ipad-button {
+    position: absolute;
+    bottom: 30px; /* المسافة من الأسفل */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px; /* عرض الزر */
+    height: 60px; /* ارتفاع الزر */
+    background-color: #fff;
+    border-radius: 50%; /* جعل الزر دائريًا */
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.3); /* إضافة تأثير ظل 3D للزر */
+    cursor: pointer; /* تغيير المؤشر عند المرور على الزر */
+}
+
+.ipad-button:hover {
+    background-color: #e0e0e0; /* تغيير لون الخلفية عند التمرير */
+}
+
+.clock {
+    font-family: 'Arial', sans-serif; /* خط مناسب للساعة */
+    font-size: 70px; /* حجم الخط للساعة */
+    color: #fff; /* لون الخط */
+    padding: 60px 20px; /* حشو حول الساعة */
+    position: absolute; /* تحديد موضع الساعة داخل الشاشة */
+    top: 20px; /* المسافة من الأعلى */
+    left: 50%; /* تحديد المسافة من اليسار */
+    transform: translateX(-50%); /* مركز الساعة أفقيًا */
+    z-index: 1; /* التأكد من ظهور الساعة فوق العناصر الأخرى */
+    background-color: transparent; /* إزالة خلفية الساعة */
+}
+
+.ipad-line {
+    position: absolute;
+    bottom: 100px; /* المسافة فوق الزر */
+    left: 0; /* وضع الخط على اليسار */
+    width: 100%; /* توسيع العرض الكامل للإطار */
+    height: 4px; /* زيادة سمك الخط قليلاً لجعله أكثر وضوحًا */
+    border-radius: 2px; /* تدوير زوايا الخط */
+    background-color: #fff;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.3); /* إضافة تأثير ظل 3D للخط */
+}
+
+
+
+.quote{
+color: white;
+font-weight: bold;
+font-style: italic;
+font-size: 70px;
+  transition: all 0.5s ease-in-out;
+
+}
+
+.quote:hover {
+  font-size: 50px;
+  color: #00eeff;
+  transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.by{
+    color: #00eeff;
+    font-size: 25px;
+}
+
+.blob-outer-container{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+z-index: 0;
+inset: 0;
+margin: auto;
+filter: blur(80px);}
+
+.blob-inner-container{
+    border-radius: 99999px;
+    position: absolute;
+    background-size: auto;
+    inset: 0;
+    margin: auto;
+    width: 1700px;
+    height: 800px;
+    min-height: 1000px;
+    overflow: hidden;
+    background-color: #fff;
+    transform: scale(0.6);
+}
+
+.blob{
+    position: absolute;
+    width: 1700px;
+    height: 1000px;
+    inset: 0;
+    margin: auto;
+    background:conic-gradient(from 0deg, #08f , #f60 , #bbffa1, #4c00ff, #ab2666,#0B666A);
+}
+
+@keyframes spinBlob {
+    0%{
+        transform: rotate(0deg) scale(2);
+    }
+    
+    50%{
+                transform: rotate(0deg) scale(2);
+
+    }
+
+    100%{
+        transform: rotate(0deg) scale(2);
+    }
+}
